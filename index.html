@@ -89,19 +89,94 @@ h1{font-size:26px} h2{font-size:19px} h3{font-size:16px;font-weight:700}
 .kv b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
 .ref{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.03em;direction:ltr;unicode-bidi:isolate}
 /* hero */
-.hero{background:var(--brand);color:#fff;border-radius:var(--r);padding:30px 26px;display:grid;gap:14px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset-block:0;inset-inline-end:-40px;width:260px;background:repeating-linear-gradient(-60deg,rgba(255,255,255,.07) 0 14px,transparent 14px 28px);pointer-events:none}
+
+.hero{background:linear-gradient(135deg,#EE2B31 0%,#C8161C 55%,#8A0E13 100%);color:#fff;border-radius:16px;padding:34px 30px;display:grid;gap:14px;position:relative;overflow:hidden;box-shadow:0 18px 40px -20px rgba(180,20,26,.6)}
+.hero::before{content:"";position:absolute;width:460px;height:460px;border-radius:50%;inset-inline-start:-160px;bottom:-300px;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 65%);pointer-events:none}
+.hero.split{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:30px}
+@media (max-width:820px){.hero.split{grid-template-columns:1fr}}
+.hero-main{display:grid;gap:14px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;justify-self:start;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:3px 12px;border-radius:999px;font-size:12.5px;font-weight:600}
+.eyebrow svg{width:15px;height:15px}
+.hero-side{position:relative;z-index:1}
+.art{background:#fff;color:#1A1A1F;border-radius:14px;padding:16px;display:grid;box-shadow:0 22px 44px -14px rgba(60,0,0,.5);transform:rotate(-1.5deg)}
+[dir="rtl"] .art,[dir="rtl"] .hero-photo{transform:rotate(1.5deg)}
+.art .sub{color:#6B6B76;font-size:12.5px;line-height:1.4}
+.art-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
+.art-bar{height:6px;border-radius:9px;background:#F6E3E4;overflow:hidden;margin-bottom:12px}
+.art-bar span{display:block;height:100%;background:#E31E24;border-radius:9px}
+.art-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #EFEFF2;border-radius:10px;background:#fff}
+.art-link{width:2px;height:12px;background:#EBC0C2;margin-inline-start:27px}
+.art .pill{background:#EEEEF1;color:#6B6B76}.art .pill.ok{background:#E3F4EA;color:#1E7A46}.art .pill.warn{background:#FBF0DC;color:#94620E}
+.art .av{background:#FDE7E8;color:#C8161C}
+.hero-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:5px solid rgba(255,255,255,.92);box-shadow:0 22px 44px -14px rgba(60,0,0,.55);transform:rotate(-1.5deg)}
+@media (max-width:820px){.hero-side{max-width:440px}}
+@media (max-width:560px){.hero-side[aria-hidden="true"]{display:none}}
+.hx{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:440px;background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -42px rgba(20,20,30,.45)}
+.hx-text{position:relative;z-index:2;display:grid;gap:18px;align-content:center;padding:48px 44px}
+
+.hx .eyebrow{background:var(--brand-soft);color:var(--brand);border:0;font-weight:700}
+.hx h1{font-size:44px;line-height:1.12;letter-spacing:-.025em;color:var(--ink);max-width:16ch}
+[lang="fa"] .hx h1,[dir="rtl"] .hx h1{letter-spacing:0;line-height:1.35}
+.hx h1 em{font-style:normal;color:var(--brand);display:block}
+.hx p{color:var(--muted);font-size:16.5px;margin:0;max-width:50ch;line-height:1.75}
+.hx .btn{padding:11px 18px;border-radius:10px;font-size:15px}
+.hx .btn.white{background:var(--brand);border-color:var(--brand);color:#fff}
+.hx .btn.white:hover{background:var(--brand-deep)}
+.hx .btn.outline-w{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.hx-media{position:relative;min-height:100%}
+.hx-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+[dir="rtl"] .hx-media img{}
+.chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.84);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);color:#1A1A1F;box-shadow:0 12px 32px -12px rgba(0,0,0,.4);font-size:13px;line-height:1.35;border:1px solid rgba(255,255,255,.7)}
+.chip .sub{color:#62626C;font-size:12px}
+.chip .av{width:32px;height:32px;font-size:12px;background:#FDE7E8;color:#C8161C}
+.chip.bottom{inset-inline-end:24px;bottom:24px}
+.chip.top{inset-inline-end:24px;top:24px;padding:6px 12px;border-radius:999px;font-weight:700;font-size:12.5px}
+.chip .tick{width:22px;height:22px;border-radius:50%;background:#1E9E5A;color:#fff;display:grid;place-items:center;flex:none}
+.chip .tick svg{width:13px;height:13px;stroke-width:3}
+.pulse{width:8px;height:8px;border-radius:50%;background:#E31E24;box-shadow:0 0 0 0 rgba(227,30,36,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(227,30,36,0)}100%{box-shadow:0 0 0 0 rgba(227,30,36,0)}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+@media (max-width:860px){.hx{grid-template-columns:1fr;min-height:0}.hx-media{order:-1;height:260px}.hx-media img,[dir="rtl"] .hx-media img{}.hx-text{padding:6px 22px 30px}.hx-text::before{display:none}.hx h1{font-size:32px}.chip.bottom{bottom:auto;top:200px;display:none}}
+.greet.banner{position:relative;display:block;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 30px;min-height:180px;overflow:hidden;box-shadow:0 24px 50px -40px rgba(20,20,30,.45)}
+
+.greet.banner .bn-txt{position:relative;z-index:1;max-width:58%;display:grid;gap:16px;justify-items:start}
+.greet.banner .bn-img{position:absolute;inset-block:0;inset-inline-end:0;width:46%;height:100%;object-fit:cover;}
+[dir="rtl"] .greet.banner .bn-img{}
+@media (max-width:700px){.greet.banner{padding:0 0 22px}.greet.banner .bn-img,[dir="rtl"] .greet.banner .bn-img{position:relative;display:block;width:100%;height:170px;}.greet.banner .bn-txt{max-width:none;padding:0 20px}.greet.banner{display:flex;flex-direction:column-reverse}}
+.teamband{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px;background:linear-gradient(135deg,#FFF4F4,#FDE3E4);border:1px solid #F6D3D5;border-radius:16px;overflow:hidden;padding:0 0 0 26px;min-height:200px;color:#1A1A1F}
+[dir="rtl"] .teamband{padding:0 26px 0 0}
+.teamband .tb-text{align-self:center;padding-block:24px;display:grid;gap:8px}
+.teamband h1{color:#1A1A1F} .teamband .sub{color:#5E5E68;max-width:60ch} .teamband label.fl{color:#1A1A1F}
+.teamband img{display:block;height:230px;width:auto;mix-blend-mode:multiply;}
+@media (max-width:700px){.teamband,[dir="rtl"] .teamband{grid-template-columns:1fr;padding:0}.teamband .tb-text{padding:22px 20px 0}.teamband img{height:auto;width:100%;max-width:420px;justify-self:center}}
+.hero::after{content:"";position:absolute;inset-block:0;inset-inline-end:-40px;width:300px;background:repeating-linear-gradient(-60deg,rgba(255,255,255,.07) 0 14px,transparent 14px 28px);pointer-events:none}
 .hero h1{font-size:30px;color:#fff;max-width:22ch}
 .hero p{margin:0;max-width:60ch;opacity:.95}
 .hero .row{position:relative;z-index:1}
-.steps{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.steps{display:grid;gap:14px;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
 .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:8px;box-shadow:var(--shadow)}
 .step .ic{width:40px;height:40px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
 .step .ic svg{width:22px;height:22px}
-.step .n{font-family:var(--f-mono);font-size:12px;color:var(--brand);font-weight:500}
-.roles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.step{position:relative;transition:transform .15s ease,box-shadow .15s ease}
+.step:hover,.role:hover{transform:translateY(-2px);box-shadow:0 12px 26px -14px rgba(20,20,30,.3)}
+.step .n{position:absolute;top:10px;inset-inline-end:16px;font-size:34px;font-weight:800;line-height:1;color:var(--brand-soft);font-variant-numeric:tabular-nums}
+.step h3,.step .sub{position:relative}
+.roles{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.roles.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:820px){.roles.three{grid-template-columns:1fr}}
 .role{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start;box-shadow:var(--shadow)}
+.role{position:relative;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+.role::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--line)}
+.role.main::before{background:var(--brand)} .role.team::before{background:var(--ok)}
 .role.main{border:2px solid var(--brand)}
+.role .ic.soft{background:var(--ok-soft);color:var(--ok)}
+.who{display:grid;gap:12px}
+.who .w{display:flex;gap:12px;align-items:flex-start}
+.who .w .ic{width:36px;height:36px;flex:none}
+.who .w .ic svg{width:18px;height:18px}
+.badge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--brand);color:#fff;font-size:11px;font-weight:800;line-height:1}
 .role .ic{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center}
 .role .ic.alt{background:var(--sunk);color:var(--ink)}
 .role .ic svg{width:22px;height:22px}
@@ -262,7 +337,7 @@ roleSupNote:"No project manager has started yet.",
 startPm:"Start my logbook",yourName:"Your name",yourNameHint:"Supervisors will see this name on your projects.",yourRole:"Role or team",save:"Save",cancel:"Cancel",close:"Close",
 signInT:"Sign in to the logbook",signInS:"Use your Google account or your email. The first time, an admin approves your account and gives you a role.",google:"Continue with Google",email:"Email",password:"Password",signIn:"Sign in",signUp:"Create account",haveAcc:"I already have an account",noAcc:"New here? Create an account",signOut:"Sign out",authErr:"Sign-in failed. Check your email and password.",
 pendingT:"Waiting for approval",pendingS:"Your account was created. If you are a team member, just add your name below; that is all you need to do. Project managers and supervisors: the admin will give you a role, then refresh this page.",
-teamNav:"Team",joinT:"Add yourself to the team list",joinS:"Write your full name once. Project managers will pick you from this list when they log your work. You don't need to wait for approval for this.",joinBtn:"Add me to the team",joinedT:"You are on the team list",joinedS:"Project managers can now pick you when they log stages.",joinErr:"Could not save. Try again.",teamT:"Team members",teamS:"Each person's work by month, counted automatically from the stage reports project managers write.",month:"Month",addMember:"Add team member",memberName:"Full name",memberHint:"Write the name once, the same way you want it in every report.",
+teamNav:"Team",heroA:"Every stage of the work,",heroB:"on the record.",liveRep:"Live report",eyebrow:"SEO Afghanistan · Project Logbook",artTask:"Website SEO audit",artClient:"Client: Sample company",artNow:"In progress",artS1:"Keyword research",artS2:"Content writing",artS3:"Final review",artP1:"Ahmad",artP2:"Mariam",artP3:"Sami",artDone:"Done",artDoing:"Working",artNext:"Next",teamPhoto:"Our team",roleTeamT:"I'm a team member",roleTeamS:"I do the work. I add my name once; project managers log my stages, and my monthly work shows on the Team page.",roleTeamBtn:"Add my name",onTeam:"You are on the team list",whoUsesT:"Who uses it",uPmT:"Project manager",uPmS:"Sign in. The admin makes you a project manager. Then log your projects.",uSupT:"Supervisor",uSupS:"Sign in. The admin makes you a supervisor. Then read every report.",uTeamT:"Team member",uTeamS:"Sign in and add your name. That's all.",welcomeT:"Welcome",welcomeS:"Your account is ready. Pick the card that fits you.",waitT:"Project manager or supervisor?",waitS:"The admin will give you a role soon. After that, refresh this page and your logbook opens.",reload:"Refresh",pendingN:"waiting for a role",joinT:"Add yourself to the team list",joinS:"Write your full name once. Project managers will pick you from this list when they log your work. You don't need to wait for approval for this.",joinBtn:"Add me to the team",joinedT:"You are on the team list",joinedS:"Project managers can now pick you when they log stages.",joinErr:"Could not save. Try again.",teamT:"Team members",teamS:"Each person's work by month, counted automatically from the stage reports project managers write.",month:"Month",addMember:"Add team member",memberName:"Full name",memberHint:"Write the name once, the same way you want it in every report.",
 noTeamT:"No team members yet",noTeamS:"Add the people who work under the project managers. Then pick them from this list when logging stages.",
 stagesDone:"Stages done",tasksWorked:"Tasks worked on",sentBack:"Sent back for fixes",sentBackRate:"Sent back",hoursM:"Hours",avgDaysM:"Avg. days per stage",
 workIn:"Work in",noWork:"No work logged for this month.",countingAll:"Counting everyone's work…",refresh:"Refresh",project:"Project",task:"Task",
@@ -312,7 +387,7 @@ roleSupNote:"هنوز هیچ مدیر پروژه‌ای شروع نکرده.",
 startPm:"شروع دفتر من",yourName:"نام شما",yourNameHint:"ناظران این نام را روی پروژه‌های شما می‌بینند.",yourRole:"نقش یا تیم",save:"ذخیره",cancel:"لغو",close:"بستن",
 signInT:"ورود به دفتر",signInS:"با حساب گوگل یا ایمیل خود وارد شوید. بار اول، مدیر سیستم حساب شما را تأیید می‌کند و نقش شما را تعیین می‌کند.",google:"ورود با گوگل",email:"ایمیل",password:"رمز",signIn:"ورود",signUp:"ساختن حساب",haveAcc:"حساب دارم",noAcc:"تازه هستید؟ حساب بسازید",signOut:"خروج",authErr:"ورود ناموفق بود. ایمیل و رمز را بررسی کنید.",
 pendingT:"در انتظار تأیید",pendingS:"حساب شما ساخته شد. اگر عضو تیم هستید، فقط نام خود را در پایین اضافه کنید؛ کار دیگری لازم نیست. مدیران پروژه و ناظران: مدیر سیستم نقش شما را تعیین می‌کند، بعد این صفحه را تازه کنید.",
-teamNav:"اعضای تیم",joinT:"نام خود را به فهرست تیم اضافه کنید",joinS:"نام کامل خود را یک بار بنویسید. مدیران پروژه هنگام ثبت کار، شما را از این فهرست انتخاب می‌کنند. برای این کار لازم نیست منتظر تأیید بمانید.",joinBtn:"مرا به تیم اضافه کن",joinedT:"نام شما در فهرست تیم است",joinedS:"مدیران پروژه حالا می‌توانند هنگام ثبت مرحله‌ها شما را انتخاب کنند.",joinErr:"ذخیره نشد. دوباره امتحان کنید.",teamT:"اعضای تیم",teamS:"کار هر نفر به تفکیک ماه، که خودکار از گزارش‌های مرحله‌ای مدیران پروژه حساب می‌شود.",month:"ماه",addMember:"افزودن عضو تیم",memberName:"نام کامل",memberHint:"نام را یک بار بنویسید، همان‌طور که می‌خواهید در همهٔ گزارش‌ها بیاید.",
+teamNav:"اعضای تیم",heroA:"هر مرحلهٔ کار،",heroB:"ثبت‌شده و روشن.",liveRep:"گزارش زنده",eyebrow:"SEO Afghanistan · دفتر پروژه",artTask:"بررسی سئوی وب‌سایت",artClient:"مشتری: یک شرکت نمونه",artNow:"در جریان",artS1:"تحقیق کلمات کلیدی",artS2:"نوشتن محتوا",artS3:"بازبینی نهایی",artP1:"احمد",artP2:"مریم",artP3:"سمیع",artDone:"انجام شد",artDoing:"در حال کار",artNext:"بعدی",teamPhoto:"تیم ما",roleTeamT:"من عضو تیم هستم",roleTeamS:"کار را انجام می‌دهم. نامم را یک بار اضافه می‌کنم؛ مدیران پروژه مراحل کارم را ثبت می‌کنند و کار ماهانه‌ام در صفحهٔ تیم دیده می‌شود.",roleTeamBtn:"افزودن نام من",onTeam:"نام شما در فهرست تیم است",whoUsesT:"چه کسانی از آن استفاده می‌کنند",uPmT:"مدیر پروژه",uPmS:"وارد شوید. مدیر سیستم شما را مدیر پروژه می‌کند. بعد پروژه‌هایتان را ثبت کنید.",uSupT:"ناظر",uSupS:"وارد شوید. مدیر سیستم شما را ناظر می‌کند. بعد همهٔ گزارش‌ها را بخوانید.",uTeamT:"عضو تیم",uTeamS:"وارد شوید و نام خود را اضافه کنید. همین.",welcomeT:"خوش آمدید",welcomeS:"حساب شما آماده است. کارتی را که به شما می‌خورد انتخاب کنید.",waitT:"مدیر پروژه یا ناظر هستید؟",waitS:"مدیر سیستم به‌زودی نقش شما را تعیین می‌کند. بعد این صفحه را تازه کنید تا دفترتان باز شود.",reload:"تازه کردن",pendingN:"منتظر نقش",joinT:"نام خود را به فهرست تیم اضافه کنید",joinS:"نام کامل خود را یک بار بنویسید. مدیران پروژه هنگام ثبت کار، شما را از این فهرست انتخاب می‌کنند. برای این کار لازم نیست منتظر تأیید بمانید.",joinBtn:"مرا به تیم اضافه کن",joinedT:"نام شما در فهرست تیم است",joinedS:"مدیران پروژه حالا می‌توانند هنگام ثبت مرحله‌ها شما را انتخاب کنند.",joinErr:"ذخیره نشد. دوباره امتحان کنید.",teamT:"اعضای تیم",teamS:"کار هر نفر به تفکیک ماه، که خودکار از گزارش‌های مرحله‌ای مدیران پروژه حساب می‌شود.",month:"ماه",addMember:"افزودن عضو تیم",memberName:"نام کامل",memberHint:"نام را یک بار بنویسید، همان‌طور که می‌خواهید در همهٔ گزارش‌ها بیاید.",
 noTeamT:"هنوز عضوی نیست",noTeamS:"کسانی را که زیر دست مدیران پروژه کار می‌کنند اضافه کنید. بعد هنگام ثبت مراحل از همین لیست انتخابشان کنید.",
 stagesDone:"مرحلهٔ تمام‌شده",tasksWorked:"تسک‌های کارشده",sentBack:"برگشت برای اصلاح",sentBackRate:"برگشتی",hoursM:"ساعت",avgDaysM:"میانگین روز هر مرحله",
 workIn:"کارهای",noWork:"در این ماه کاری ثبت نشده.",countingAll:"در حال شمارش کار همه…",refresh:"تازه کردن",project:"پروژه",task:"تسک",
@@ -430,7 +505,8 @@ function openProjectSubs(uid,pid){
 function updateRole(){const el=document.getElementById("rolePill"),ub=document.getElementById("userBox");
   if(!st.authUser||st.demo){el.hidden=true;ub.innerHTML="";return}
   const r=st.me.role;el.className="pill "+(r==="admin"?"acc":r==="pm"?"ok":"");el.textContent=t("roles."+(r||"pending"));el.hidden=!r;
-  ub.innerHTML=`<button class="btn small" type="button" data-act="team">${ic("chart")}${esc(t("teamNav"))}</button>`+(st.me.admin?`<button class="btn small" type="button" data-act="users">${ic("users")}${esc(t("users"))}</button>`:"")+`<button class="btn small ghost" type="button" data-act="signOut">${esc(t("signOut"))}</button>`}
+  const waiting=st.me.admin?Object.values(st.users||{}).filter(u=>u.role==="pending"&&!u.inTeam).length:0;const approved=r==="pm"||r==="supervisor"||r==="admin";
+  ub.innerHTML=(approved?`<button class="btn small" type="button" data-act="team">${ic("chart")}${esc(t("teamNav"))}</button>`:"")+(st.me.admin?`<button class="btn small" type="button" data-act="users" ${waiting?`title="${esc(fmtNum(waiting)+" "+t("pendingN"))}"`:""}>${ic("users")}${esc(t("users"))}${waiting?`<span class="badge">${esc(fmtNum(waiting))}</span>`:""}</button>`:"")+`<button class="btn small ghost" type="button" data-act="signOut">${esc(t("signOut"))}</button>`}
 
 /* ---------- demo (in memory only) ---------- */
 let saved=null;
@@ -479,7 +555,8 @@ function render(){updateRole();
   if(st.nosetup&&!st.demo){app.innerHTML=landing(null)+`<div class="note" style="margin-top:16px"><b>${esc(t("setupT"))}</b> ${esc(t("setupS"))}</div>`;return}
   if(!st.authReady){app.innerHTML=`<div class="empty"><span class="ic">${ic("book")}</span><b>${esc(t("loading"))}</b></div>`;return}
   if(!st.authUser&&!st.demo){app.innerHTML=signInPage();return}
-  if(!st.demo&&(st.me.role==="pending"||st.me.role==="disabled")){app.innerHTML=`<section class="hero"><h1>${esc(t("pendingT"))}</h1><p>${esc(t("pendingS"))}</p><div class="row"><button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button></div></section>`+joinBox();return}
+  if(!st.demo&&st.me.role==="pending"){app.innerHTML=welcomePage();return}
+  if(!st.demo&&st.me.role==="disabled"){app.innerHTML=`<section class="hero"><h1>${esc(t("roles.disabled"))}</h1></section>`;return}
   if(!st.loaded&&!st.nodb){app.innerHTML=`<div class="empty"><span class="ic">${ic("book")}</span><b>${esc(t("loading"))}</b>${st.slow?`<div class="note">${esc(t("slow"))}</div>`:""}</div>`;return}
   if(st.nodb&&!st.demo){app.innerHTML=landing(false)+`<div class="note" style="margin-top:16px">${esc(t("nodb"))}</div>`;return}
   const v=st.view;let h=st.demo?`<div class="demo-banner"><span>${ic("eye")} ${esc(t("demoBanner"))}</span><button class="btn small" type="button" data-act="endDemo">${esc(t("demoBack"))}</button></div>`:"";
@@ -491,28 +568,39 @@ function render(){updateRole();
   else if(v.name==="task")h+=taskPage(v.uid,v.pid,v.tid);
   app.innerHTML=h}
 
+function heroArt(){if(st.photo)return `<div class="hero-side"><img class="hero-photo" src="team.jpg" alt="${esc(t("teamPhoto"))}"></div>`;
+  const rows=[["artP1","artS1","ok","artDone"],["artP2","artS2","warn","artDoing"],["artP3","artS3","","artNext"]];
+  return `<div class="hero-side" aria-hidden="true"><div class="art"><div class="art-h"><div><b>${esc(t("artTask"))}</b><div class="sub">${esc(t("artClient"))}</div></div><span class="pill warn">${esc(t("artNow"))}</span></div><div class="art-bar"><span style="width:45%"></span></div>${rows.map(([p,s2,c,l],i)=>`<div class="art-row">${av(t(p))}<div class="grow" style="min-width:0"><b style="font-size:14px">${esc(t(s2))}</b><div class="sub">${esc(t(p))}</div></div><span class="pill ${c}">${esc(t(l))}</span></div>${i<2?'<div class="art-link"></div>':""}`).join("")}</div></div>`}
+function heroBlock(title,text,btns,img,em){if(img)return `<section class="hx"><div class="hx-text"><span class="eyebrow">${ic("book")}${esc(t("eyebrow"))}</span><h1>${esc(title)}${em?`<em>${esc(em)}</em>`:""}</h1><p>${esc(text)}</p>${btns?`<div class="row">${btns}</div>`:""}</div><div class="hx-media"><img src="${img}" alt="${esc(t("teamPhoto"))}"><span class="chip top"><span class="pulse"></span>${esc(t("liveRep"))}</span><div class="chip bottom">${av(t("artP2"))}<div><b>${esc(t("artS2"))}</b><div class="sub">${esc(t("artP2"))} → ${esc(t("artP3"))}</div></div><span class="tick">${ic("check")}</span></div></div></section>`;return `<section class="hero split"><div class="hero-main"><span class="eyebrow">${ic("book")}${esc(t("eyebrow"))}</span><h1>${esc(title)}</h1><p>${esc(text)}</p>${btns?`<div class="row">${btns}</div>`:""}</div>${heroArt()}</section>`}
+function joinCard(inline){const done=st.me.inTeam;
+  return `<div class="role team"><span class="ic soft">${ic("users")}</span><h3>${esc(t("roleTeamT"))}</h3><span class="sub">${esc(t("roleTeamS"))}</span>${done?`<div><span class="pill ok">${esc(t("onTeam"))}${st.me.name?" · "+esc(st.me.name):""}</span></div>`:inline?`<form id="joinForm" class="f" novalidate>${fld("j_name",t("memberName"),inp("j_name",st.me.name||(st.authUser&&st.authUser.displayName)||"","text",'required autocomplete="name"'),t("memberHint"),true)}<div><button class="btn primary" type="submit">${ic("plus")}${esc(t("joinBtn"))}</button></div></form>`:`<div><button class="btn primary" type="button" data-act="joinTeam">${ic("plus")}${esc(t("roleTeamBtn"))}</button></div>`}</div>`}
+function welcomePage(){const nm=st.me.name||(st.authUser&&st.authUser.displayName)||"";
+  return heroBlock(t("welcomeT")+(nm?(lang==="fa"?"،":","):""),t("welcomeS"),`<button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button>`,"photo-duo.jpg",nm)+
+  `<section class="sec"><div class="roles">${joinCard(true)}<div class="role"><span class="ic alt">${ic("clock")}</span><h3>${esc(t("waitT"))}</h3><span class="sub">${esc(t("waitS"))}</span><div><button class="btn" type="button" data-act="reload">${esc(t("reload"))}</button></div></div></div></section>`}
+async function saveJoin(name){name=String(name||"").trim().replace(/\s+/g," ");if(!name)return false;const uid=st.me.id,now=new Date().toISOString();
+  try{const b=st.db.batch();b.set(st.db.collection("team").doc(uid),{name,createdAt:now,by:uid,self:true},{merge:true});b.set(st.db.collection("users").doc(uid),{name,inTeam:true},{merge:true});await b.commit();st.me.name=name;st.me.inTeam=true;render();toast(t("saved"));return true}catch(err){toast(t("joinErr"));return false}}
 function landing(canStart){const others=Object.keys(st.pms).length;
-  return `<section class="hero"><h1>${esc(t("heroT"))}</h1><p>${esc(t("heroS"))}</p>
-  <div class="row">${canStart?`<button class="btn white" type="button" data-act="startPm">${ic("plus")}${esc(t("rolePmBtn"))}</button>`:""}<button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button></div></section>
+  return heroBlock(t("heroA"),t("heroS"),`${canStart?`<button class="btn white" type="button" data-act="startPm">${ic("plus")}${esc(t("rolePmBtn"))}</button>`:""}<button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button>`,"photo-team.jpg",t("heroB"))+`
   <section class="sec"><div class="sec-h"><h2>${ic("spark")}${esc(t("howT"))}</h2></div><div class="steps">
-   ${[["folder","step1"],["list","step2"],["chain","step3"],["chart","step4"]].map(([i,k],n)=>`<div class="step"><span class="ic">${ic(i)}</span><span class="n">${fmtNum(n+1)}</span><h3>${esc(t(k+"T"))}</h3><span class="sub">${esc(t(k+"S"))}</span></div>`).join("")}
+   ${[["folder","step1"],["list","step2"],["chain","step3"],["chart","step4"]].map(([i,k],n)=>`<div class="step"><span class="n">${fmtNum(n+1)}</span><span class="ic">${ic(i)}</span><h3>${esc(t(k+"T"))}</h3><span class="sub">${esc(t(k+"S"))}</span></div>`).join("")}
   </div></section>
-  ${canStart!==null?`<section class="sec"><div class="sec-h"><h2>${ic("users")}${esc(t("roleT"))}</h2></div><div class="roles">
+  ${canStart!==null?`<section class="sec"><div class="sec-h"><h2>${ic("users")}${esc(t("roleT"))}</h2></div><div class="roles three">
    ${canStart?`<div class="role main"><span class="ic">${ic("user")}</span><h3>${esc(t("rolePmT"))}</h3><span class="sub">${esc(t("rolePmS"))}</span><div><button class="btn primary" type="button" data-act="startPm">${ic("plus")}${esc(t("rolePmBtn"))}</button></div></div>`:""}
    <div class="role"><span class="ic alt">${ic("eye")}</span><h3>${esc(t("roleSupT"))}</h3><span class="sub">${esc(t("roleSupS"))}</span>${others?"":`<span class="pill plain">${esc(t("roleSupNote"))}</span>`}</div>
+   ${st.authUser&&!st.demo?joinCard(false):`<div class="role team"><span class="ic soft">${ic("users")}</span><h3>${esc(t("roleTeamT"))}</h3><span class="sub">${esc(t("roleTeamS"))}</span></div>`}
   </div></section>`:""}`}
 
 function home(){const me=st.me.id,isPm=me&&st.pms[me];const all=Object.keys(st.pms);
   if(!isPm&&!all.length)return landing(!st.readOnly&&!!me);
   let h="";
   if(isPm){const p=st.pms[me];const others=all.filter(u=>u!==me);
-    h+=`<div class="greet"><div class="row">${av(p.name,"lg")}<div><h1>${esc(t("hello"))}${lang==="fa"?"، ":", "}${esc(p.name)}</h1><div class="sub">${esc(t("helloS"))}</div></div></div>${canEditPm(me)?`<button class="btn primary" type="button" data-act="newProject" data-uid="${esc(me)}">${ic("plus")}${esc(t("newProject"))}</button>`:""}</div>`;
+    h+=`<div class="greet banner"><div class="bn-txt"><div class="row" style="flex:1;min-width:0">${av(p.name,"lg")}<div><h1>${esc(t("hello"))}${lang==="fa"?"، ":", "}${esc(p.name)}</h1><div class="sub">${esc(t("helloS"))}</div></div></div>${canEditPm(me)?`<button class="btn primary" type="button" data-act="newProject" data-uid="${esc(me)}">${ic("plus")}${esc(t("newProject"))}</button>`:""}</div><img class="bn-img" src="photo-work.jpg" alt="${esc(t("teamPhoto"))}"></div>`;
     h+=`<div class="sec">${statTiles(totals([me]))}</div>`;
     h+=`<section class="sec"><div class="sec-h"><h2>${ic("folder")}${esc(t("myProjects"))}</h2></div>${projectCards(me)}</section>`;
     h+=`<section class="sec"><div class="sec-h"><h2>${ic("clock")}${esc(t("activity"))}</h2></div>${feed([me])}</section>`;
     if(others.length&&(st.me.owner||st.me.admin))h+=`<section class="sec"><div class="sec-h"><h2>${ic("users")}${esc(t("managers"))}</h2></div>${pmGrid(others)}</section>`;
     return h}
-  h+=`<div class="greet"><div><h1>${esc(t("managers"))}</h1><div class="sub">${esc(t("helloSup"))}</div></div>${!isPm&&!st.readOnly&&me?`<button class="btn primary" type="button" data-act="startPm">${ic("plus")}${esc(t("startPm"))}</button>`:isPm&&canEditPm(me)?`<button class="btn primary" type="button" data-act="newProject" data-uid="${esc(me)}">${ic("plus")}${esc(t("newProject"))}</button>`:""}</div>`;
+  h+=`<div class="greet banner"><div class="bn-txt"><div style="flex:1;min-width:0"><h1>${esc(t("managers"))}</h1><div class="sub">${esc(t("helloSup"))}</div></div>${!isPm&&!st.readOnly&&me?`<button class="btn primary" type="button" data-act="startPm">${ic("plus")}${esc(t("startPm"))}</button>`:isPm&&canEditPm(me)?`<button class="btn primary" type="button" data-act="newProject" data-uid="${esc(me)}">${ic("plus")}${esc(t("newProject"))}</button>`:""}</div><img class="bn-img" src="photo-duo.jpg" alt="${esc(t("teamPhoto"))}"></div>`;
   h+=`<div class="sec">${statTiles(totals(all))}</div>`;
   h+=`<section class="sec"><div class="sec-h"><h2>${ic("users")}${esc(t("managers"))}</h2></div>${pmGrid(all)}</section>`;
   h+=`<section class="sec"><div class="sec-h"><h2>${ic("clock")}${esc(t("activity"))}</h2></div>${feed(all)}</section>`;
@@ -642,7 +730,7 @@ function teamStats(month){const roster=st.team||{};const byName={};Object.entrie
 function monthLabel(m){try{return new Date(m+"-15T12:00:00").toLocaleDateString(lang==="fa"?"fa-AF-u-ca-gregory":"en-GB",{month:"long",year:"numeric"})}catch(e){return m}}
 function teamPage(){const v=st.view,month=v.month||today().slice(0,7);const canAdd=st.me.role==="pm"||st.me.admin;
   let h=crumbs([{act:"home",label:t("home")},{label:t("teamT")}]);
-  h+=`<div class="greet"><div><h1>${esc(t("teamT"))}</h1><div class="sub" style="max-width:65ch">${esc(t("teamS"))}</div></div><div class="row"><label class="fl" for="teamMonth" style="font-weight:600">${esc(t("month"))}<input id="teamMonth" type="month" value="${esc(month)}" style="width:auto;border:1px solid var(--line);border-radius:var(--r-s);padding:7px 10px;background:var(--surface);color:var(--ink)"></label>${canAdd?`<button class="btn primary" type="button" data-act="addMember">${ic("plus")}${esc(t("addMember"))}</button>`:""}<button class="btn" type="button" data-act="teamRefresh">${esc(t("refresh"))}</button></div></div>`;
+  h+=`<div class="teamband"><div class="tb-text"><h1>${esc(t("teamT"))}</h1><div class="sub">${esc(t("teamS"))}</div><div class="row" style="margin-top:6px"><label class="fl" for="teamMonth" style="font-weight:600">${esc(t("month"))}<input id="teamMonth" type="month" value="${esc(month)}" style="width:auto;border:1px solid var(--line);border-radius:var(--r-s);padding:7px 10px;background:var(--surface);color:var(--ink)"></label>${canAdd?`<button class="btn primary" type="button" data-act="addMember">${ic("plus")}${esc(t("addMember"))}</button>`:""}<button class="btn" type="button" data-act="teamRefresh">${esc(t("refresh"))}</button></div></div><img src="photo-group.jpg" alt="${esc(t("teamPhoto"))}"></div>`;
   if(!Object.keys(st.team||{}).length&&!(st.all||[]).length)return h+`<div class="sec">${emptyBox("users",t("noTeamT"),t("noTeamS"),canAdd?`<button class="btn primary" type="button" data-act="addMember">${ic("plus")}${esc(t("addMember"))}</button>`:"")}</div>`;
   if(!st.all)return h+`<div class="sec"><div class="empty"><span class="ic">${ic("chart")}</span><b>${esc(t("countingAll"))}</b></div></div>`;
   if(st.me.role==="supervisor"&&!st.me.inTeam)h+=joinBox();
@@ -669,7 +757,7 @@ function memberForm(){openModal(t("addMember"),fld("f_mname",t("memberName"),inp
 
 /* ---------- sign in + users ---------- */
 function signInPage(){const up=st.authMode==="up";
-  return `<section class="hero"><h1>${esc(t("heroT"))}</h1><p>${esc(t("heroS"))}</p><div class="row"><button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button></div></section>
+  return heroBlock(t("heroA"),t("heroS"),`<button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button>`,"photo-team.jpg",t("heroB"))+`
   <section class="sec"><div class="roles"><div class="role main"><span class="ic">${ic("user")}</span><h2>${esc(t("signInT"))}</h2><span class="sub">${esc(t("signInS"))}</span>
    <button class="btn primary" type="button" data-act="google">${ic("globe")}${esc(t("google"))}</button>
    <form id="authForm" class="f" novalidate style="border-top:1px solid var(--line);padding-top:14px">
@@ -677,14 +765,13 @@ function signInPage(){const up=st.authMode==="up";
     ${fld("a_pass",t("password"),inp("a_pass","","password",`autocomplete="${up?"new-password":"current-password"}" required dir="ltr" minlength="6"`))}
     <div class="row between"><button class="btn" type="submit">${esc(up?t("signUp"):t("signIn"))}</button><button class="btn small ghost" type="button" data-act="authMode">${esc(up?t("haveAcc"):t("noAcc"))}</button></div>
    </form></div>
-   <div class="role"><span class="ic alt">${ic("spark")}</span><h3>${esc(t("howT"))}</h3>${[["folder","step1"],["list","step2"],["chain","step3"],["chart","step4"]].map(([i,k])=>`<div class="row" style="gap:10px;align-items:flex-start;flex-wrap:nowrap"><span style="color:var(--brand)">${ic(i)}</span><div><b>${esc(t(k+"T"))}</b><div class="sub">${esc(t(k+"S"))}</div></div></div>`).join("")}</div>
-  </div></section>`}
+   <div class="role"><span class="ic alt">${ic("users")}</span><h3>${esc(t("whoUsesT"))}</h3><div class="who">${[["user","","uPm"],["eye","alt","uSup"],["users","soft","uTeam"]].map(([i,c,k])=>`<div class="w"><span class="ic ${c}">${ic(i)}</span><div><b>${esc(t(k+"T"))}</b><div class="sub">${esc(t(k+"S"))}</div></div></div>`).join("")}</div></div>
+  </div></section>
+  <section class="sec"><div class="sec-h"><h2>${ic("spark")}${esc(t("howT"))}</h2></div><div class="steps">${[["folder","step1"],["list","step2"],["chain","step3"],["chart","step4"]].map(([i,k],n)=>`<div class="step"><span class="n">${fmtNum(n+1)}</span><span class="ic">${ic(i)}</span><h3>${esc(t(k+"T"))}</h3><span class="sub">${esc(t(k+"S"))}</span></div>`).join("")}</div></section>`}
 document.addEventListener("submit",async e=>{if(e.target.id!=="authForm")return;e.preventDefault();const f=e.target;const em=f.querySelector("#a_email").value.trim(),pw=f.querySelector("#a_pass").value;
   if(!em||!pw)return;try{if(st.authMode==="up")await fbAuth.createUserWithEmailAndPassword(em,pw);else await fbAuth.signInWithEmailAndPassword(em,pw)}catch(err){toast(t("authErr"))}});
-function joinBox(){if(st.me.inTeam)return `<div class="sec panel row" style="gap:10px"><span style="color:var(--brand)">${ic("users")}</span><div><b>${esc(t("joinedT"))}</b><div class="sub">${esc(st.me.name)} · ${esc(t("joinedS"))}</div></div></div>`;
-  return `<section class="sec panel stack"><h3>${esc(t("joinT"))}</h3><div class="sub">${esc(t("joinS"))}</div><form id="joinForm" class="f" novalidate>${fld("j_name",t("memberName"),inp("j_name",st.me.name||(st.authUser&&st.authUser.displayName)||"","text",'required autocomplete="name"'),t("memberHint"),true)}<div class="row"><button class="btn primary" type="submit">${ic("plus")}${esc(t("joinBtn"))}</button></div></form></section>`}
-document.addEventListener("submit",async e=>{if(e.target.id!=="joinForm")return;e.preventDefault();const name=String(e.target.querySelector("#j_name").value||"").trim().replace(/\s+/g," ");if(!name)return;const uid=st.me.id,now=new Date().toISOString();
-  try{const b=st.db.batch();b.set(st.db.collection("team").doc(uid),{name,createdAt:now,by:uid,self:true},{merge:true});b.set(st.db.collection("users").doc(uid),{name,inTeam:true},{merge:true});await b.commit();st.me.name=name;st.me.inTeam=true;render();toast(t("saved"))}catch(err){toast(t("joinErr"))}});
+function joinBox(){return `<div class="sec">${joinCard(true)}</div>`}
+document.addEventListener("submit",async e=>{if(e.target.id!=="joinForm")return;e.preventDefault();await saveJoin(e.target.querySelector("#j_name").value)});
 function usersPage(){const list=Object.entries(st.users).sort((a,b)=>String(a[1].role).localeCompare(b[1].role));
   return crumbs([{act:"home",label:t("home")},{label:t("users")}])+`<div class="greet"><div><h1>${esc(t("users"))}</h1><div class="sub">${esc(t("usersS"))}</div></div></div>
   <div class="sec tbl"><table><thead><tr><th>${esc(t("person"))}</th><th>${esc(t("email"))}</th><th>${esc(t("role"))}</th></tr></thead><tbody>${list.map(([id,u])=>`<tr><td><span class="row" style="gap:8px">${av(u.name||u.email)}<b>${esc(u.name||"–")}</b></span></td><td dir="ltr" style="text-align:start">${esc(u.email||"")}</td><td>${id===st.me.id?pill("acc",t("roles."+u.role)):`<select data-role="${esc(id)}" aria-label="${esc(t("role"))}">${["pending","pm","supervisor","admin","disabled"].map(r=>`<option value="${r}" ${r===u.role?"selected":""}>${esc(t("roles."+r))}</option>`).join("")}</select>`}</td></tr>`).join("")}</tbody></table></div>`}
@@ -796,6 +883,8 @@ document.addEventListener("click",async e=>{const el=e.target.closest("[data-act
   switch(a){
   case"home":if(st.demo)endDemo();else go({name:"home"});break;
   case"demo":startDemo();break;
+    case"reload":location.reload();break;
+    case"joinTeam":openModal(t("roleTeamBtn"),fld("f_jname",t("memberName"),inp("f_jname",st.me.name||(st.authUser&&st.authUser.displayName)||"","text","required"),t("memberHint"),true),async fd=>{if(await saveJoin(fd.get("f_jname")))closeModal()});break;
   case"endDemo":endDemo();break;
   case"openPm":go({name:"pm",uid:el.dataset.uid});break;
   case"openProject":go({name:"project",uid:el.dataset.uid,pid:el.dataset.pid,tab:"tasks"});break;
