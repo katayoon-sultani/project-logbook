@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function myRole() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role; }
+    function isAdmin() { return signedIn() && myRole() == 'admin'; }
+    function canRead() { return signedIn() && myRole() in ['pm', 'supervisor', 'admin']; }
+    function ownsLogbook(uid) { return signedIn() && request.auth.uid == uid && myRole() in ['pm', 'admin']; }
+
+    // People and their roles. Everyone starts as "pending"; only an admin can change a role.
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create: if signedIn() && request.auth.uid == uid && request.resource.data.role == 'pending';
+      allow update: if isAdmin()
+        || (signedIn() && request.auth.uid == uid && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    // Each project manager's logbook: projects, tasks and journal notes.
+    // Approved people read everything; only the owner (or an admin) writes.
+    match /pm/{uid} {
+      allow read: if canRead();
+      allow write: if ownsLogbook(uid) || isAdmin();
+      match /{rest=**} {
+        allow read: if canRead();
+        allow write: if ownsLogbook(uid) || isAdmin();
+      }
+    }
+  }
+}
