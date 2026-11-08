@@ -191,6 +191,7 @@ details.more .stack{gap:12px}
 .log:last-child{border-bottom:0}
 .log .d{font-size:13px;color:var(--muted);font-weight:600}
 @media (max-width:560px){.log{grid-template-columns:1fr;gap:4px}h1{font-size:22px}.hero h1{font-size:24px}.hero{padding:22px 18px}.brand .bt small{display:none}.ev{grid-template-columns:36px 1fr}.ev .when{grid-column:2}}
+.back svg{transform:scaleX(-1)} html[dir="rtl"] .back svg{transform:none}
 .confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
 @media (prefers-reduced-motion:no-preference){.card,.btn{transition:border-color .15s,background .15s,color .15s}}
 </style>
@@ -261,6 +262,12 @@ roleSupNote:"No project manager has started yet.",
 startPm:"Start my logbook",yourName:"Your name",yourNameHint:"Supervisors will see this name on your projects.",yourRole:"Role or team",save:"Save",cancel:"Cancel",close:"Close",
 signInT:"Sign in to the logbook",signInS:"Use your Google account or your email. The first time, an admin approves your account and gives you a role.",google:"Continue with Google",email:"Email",password:"Password",signIn:"Sign in",signUp:"Create account",haveAcc:"I already have an account",noAcc:"New here? Create an account",signOut:"Sign out",authErr:"Sign-in failed. Check your email and password.",
 pendingT:"Waiting for approval",pendingS:"Your account was created. The admin will give you a role (project manager or supervisor). Then refresh this page.",
+teamNav:"Team",teamT:"Team members",teamS:"Each person's work by month, counted automatically from the stage reports project managers write.",month:"Month",addMember:"Add team member",memberName:"Full name",memberHint:"Write the name once, the same way you want it in every report.",
+noTeamT:"No team members yet",noTeamS:"Add the people who work under the project managers. Then pick them from this list when logging stages.",
+stagesDone:"Stages done",tasksWorked:"Tasks worked on",sentBack:"Sent back for fixes",sentBackRate:"Sent back",hoursM:"Hours",avgDaysM:"Avg. days per stage",
+workIn:"Work in",noWork:"No work logged for this month.",countingAll:"Counting everyone's work…",refresh:"Refresh",project:"Project",task:"Task",
+reason:"If sent back: why?",rr:{quality:"Work needed fixes (counted)",client:"Client changed the request (not counted)",other:"Other reason (not counted)"},
+pick:"Choose a person",notInList:"Not in the list? Add the person on the Team page.",unlisted:"Not on the team list",
 users:"Users",usersS:"Give each person a role. Project managers write their own reports; supervisors only read.",role:"Role",
 roles:{pending:"Waiting",pm:"Project manager",supervisor:"Supervisor",admin:"Admin",disabled:"Blocked"},
 setupT:"Almost ready",setupS:"Firebase settings are missing. Add them to config.js.",
@@ -305,6 +312,12 @@ roleSupNote:"هنوز هیچ مدیر پروژه‌ای شروع نکرده.",
 startPm:"شروع دفتر من",yourName:"نام شما",yourNameHint:"ناظران این نام را روی پروژه‌های شما می‌بینند.",yourRole:"نقش یا تیم",save:"ذخیره",cancel:"لغو",close:"بستن",
 signInT:"ورود به دفتر",signInS:"با حساب گوگل یا ایمیل خود وارد شوید. بار اول، مدیر سیستم حساب شما را تأیید می‌کند و نقش شما را تعیین می‌کند.",google:"ورود با گوگل",email:"ایمیل",password:"رمز",signIn:"ورود",signUp:"ساختن حساب",haveAcc:"حساب دارم",noAcc:"تازه هستید؟ حساب بسازید",signOut:"خروج",authErr:"ورود ناموفق بود. ایمیل و رمز را بررسی کنید.",
 pendingT:"در انتظار تأیید",pendingS:"حساب شما ساخته شد. مدیر سیستم نقش شما را (مدیر پروژه یا ناظر) تعیین می‌کند. بعد این صفحه را تازه کنید.",
+teamNav:"اعضای تیم",teamT:"اعضای تیم",teamS:"کار هر نفر به تفکیک ماه، که خودکار از گزارش‌های مرحله‌ای مدیران پروژه حساب می‌شود.",month:"ماه",addMember:"افزودن عضو تیم",memberName:"نام کامل",memberHint:"نام را یک بار بنویسید، همان‌طور که می‌خواهید در همهٔ گزارش‌ها بیاید.",
+noTeamT:"هنوز عضوی نیست",noTeamS:"کسانی را که زیر دست مدیران پروژه کار می‌کنند اضافه کنید. بعد هنگام ثبت مراحل از همین لیست انتخابشان کنید.",
+stagesDone:"مرحلهٔ تمام‌شده",tasksWorked:"تسک‌های کارشده",sentBack:"برگشت برای اصلاح",sentBackRate:"برگشتی",hoursM:"ساعت",avgDaysM:"میانگین روز هر مرحله",
+workIn:"کارهای",noWork:"در این ماه کاری ثبت نشده.",countingAll:"در حال شمارش کار همه…",refresh:"تازه کردن",project:"پروژه",task:"تسک",
+reason:"اگر برگشت خورد: چرا؟",rr:{quality:"کار اصلاح لازم داشت (حساب می‌شود)",client:"مشتری درخواستش را عوض کرد (حساب نمی‌شود)",other:"دلیل دیگر (حساب نمی‌شود)"},
+pick:"یک نفر را انتخاب کنید",notInList:"در لیست نیست؟ اول او را در صفحهٔ اعضای تیم اضافه کنید.",unlisted:"خارج از لیست تیم",
 users:"کاربران",usersS:"برای هر نفر نقش تعیین کنید. مدیران پروژه گزارش خودشان را می‌نویسند؛ ناظران فقط می‌خوانند.",role:"نقش",
 roles:{pending:"در انتظار",pm:"مدیر پروژه",supervisor:"ناظر",admin:"مدیر سیستم",disabled:"مسدود"},
 setupT:"تقریباً آماده است",setupS:"تنظیمات Firebase وارد نشده. آن‌ها را در فایل config.js بگذارید.",
@@ -393,7 +406,7 @@ function boot(){
     }catch(e){st.loaded=true;st.err=e&&e.code;render()}
   });
 }
-function stopAll(){if(subs.pm){subs.pm();subs.pm=null}Object.values(subs.proj).forEach(f=>f&&f());subs.proj={};if(subs.tasks){subs.tasks();subs.tasks=null}if(subs.logs){subs.logs();subs.logs=null}if(subs.users){subs.users();subs.users=null}
+function stopAll(){if(subs.pm){subs.pm();subs.pm=null}Object.values(subs.proj).forEach(f=>f&&f());subs.proj={};if(subs.tasks){subs.tasks();subs.tasks=null}if(subs.logs){subs.logs();subs.logs=null}if(subs.users){subs.users();subs.users=null}if(subs.team){subs.team();subs.team=null}st.team={};st.all=null;
   st.pms={};st.projects={};st.tasks={};st.logs={};st.users={};st.curProj=null;st.view={name:"home"}}
 function startData(){const db=st.db;
   const timer=setTimeout(()=>{if(!st.loaded){st.slow=true;render()}},10000);
@@ -402,6 +415,7 @@ function startData(){const db=st.db;
     Object.keys(next).forEach(watchProjects);
     st.loaded=true;st.slow=false;clearTimeout(timer);render();
   },err=>{st.loaded=true;clearTimeout(timer);render()});
+  subs.team=db.collection("team").onSnapshot(snap=>{const m={};snap.docs.forEach(d=>m[d.id]=d.data());st.team=m;render()},()=>{});
   if(st.me.admin)subs.users=db.collection("users").onSnapshot(snap=>{const m={};snap.docs.forEach(d=>m[d.id]=d.data());st.users=m;render()},()=>{});
 }
 function watchProjects(uid){if(subs.proj[uid])return;
@@ -416,7 +430,7 @@ function openProjectSubs(uid,pid){
 function updateRole(){const el=document.getElementById("rolePill"),ub=document.getElementById("userBox");
   if(!st.authUser||st.demo){el.hidden=true;ub.innerHTML="";return}
   const r=st.me.role;el.className="pill "+(r==="admin"?"acc":r==="pm"?"ok":"");el.textContent=t("roles."+(r||"pending"));el.hidden=!r;
-  ub.innerHTML=(st.me.admin?`<button class="btn small" type="button" data-act="users">${ic("users")}${esc(t("users"))}</button>`:"")+`<button class="btn small ghost" type="button" data-act="signOut">${esc(t("signOut"))}</button>`}
+  ub.innerHTML=`<button class="btn small" type="button" data-act="team">${ic("chart")}${esc(t("teamNav"))}</button>`+(st.me.admin?`<button class="btn small" type="button" data-act="users">${ic("users")}${esc(t("users"))}</button>`:"")+`<button class="btn small ghost" type="button" data-act="signOut">${esc(t("signOut"))}</button>`}
 
 /* ---------- demo (in memory only) ---------- */
 let saved=null;
@@ -470,6 +484,7 @@ function render(){updateRole();
   if(st.nodb&&!st.demo){app.innerHTML=landing(false)+`<div class="note" style="margin-top:16px">${esc(t("nodb"))}</div>`;return}
   const v=st.view;let h=st.demo?`<div class="demo-banner"><span>${ic("eye")} ${esc(t("demoBanner"))}</span><button class="btn small" type="button" data-act="endDemo">${esc(t("demoBack"))}</button></div>`:"";
   if(v.name==="users"&&st.me.admin)h+=usersPage();
+  else if(v.name==="team")h+=teamPage();
   else if(v.name==="home")h+=home();
   else if(v.name==="pm")h+=pmPage(v.uid);
   else if(v.name==="project")h+=projectPage(v.uid,v.pid);
@@ -611,6 +626,46 @@ function csv(){const q=v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"';const 
     sg.forEach((g,i)=>rows.push([code(x.num),x.title,x.status,i+1,stageKind(g),g.who,g.from,g.to,g.status,g.start,g.end,dayDiff(g.start,g.end),g.hours,g.report]))});
   return "﻿"+rows.map(r=>r.map(q).join(",")).join("\r\n")}
 
+/* ---------- team ---------- */
+async function loadAll(){if(!st.db)return;const out=[];
+  try{for(const uid of Object.keys(st.pms)){for(const [pid,p] of Object.entries(st.projects[uid]||{})){const snap=await st.db.collection("pm/"+uid+"/projects/"+pid+"/tasks").get();snap.docs.forEach(d=>out.push({uid,pid,pname:p.name,tid:d.id,task:d.data()}))}}}catch(e){}
+  st.all=out;render()}
+const normName=n=>String(n||"").trim().toLowerCase().replace(/\s+/g," ");
+function teamStats(month){const roster=st.team||{};const byName={};Object.entries(roster).forEach(([id,m])=>byName[normName(m.name)]=id);
+  const P={};const get=(key,name)=>P[key]||(P[key]={key,name,listed:!!roster[key],done:0,returned:0,hours:0,days:0,dn:0,tasks:new Set(),items:[]});
+  Object.entries(roster).forEach(([id,m])=>get(id,m.name));
+  (st.all||[]).forEach(r=>(r.task.stages||[]).forEach(s=>{if(!s.who)return;const mon=(s.end||s.start||"").slice(0,7);if(mon!==month)return;
+    const key=(s.whoId&&roster[s.whoId])?s.whoId:(byName[normName(s.who)]||("n:"+normName(s.who)));const p=get(key,roster[key]?roster[key].name:s.who);
+    p.tasks.add(r.uid+"/"+r.pid+"/"+r.tid);if(s.status==="done"){p.done++;const d=dayDiff(s.start,s.end);if(d!=null){p.days+=d;p.dn++}}
+    if(s.status==="returned"&&(s.returnReason||"quality")==="quality")p.returned++;p.hours+=Number(s.hours)||0;p.items.push({r,s})}));
+  return Object.values(P).sort((a,b)=>(b.done+b.returned)-(a.done+a.returned)||a.name.localeCompare(b.name))}
+function monthLabel(m){try{return new Date(m+"-15T12:00:00").toLocaleDateString(lang==="fa"?"fa-AF-u-ca-gregory":"en-GB",{month:"long",year:"numeric"})}catch(e){return m}}
+function teamPage(){const v=st.view,month=v.month||today().slice(0,7);const canAdd=st.me.role==="pm"||st.me.admin;
+  let h=crumbs([{act:"home",label:t("home")},{label:t("teamT")}]);
+  h+=`<div class="greet"><div><h1>${esc(t("teamT"))}</h1><div class="sub" style="max-width:65ch">${esc(t("teamS"))}</div></div><div class="row"><label class="fl" for="teamMonth" style="font-weight:600">${esc(t("month"))}<input id="teamMonth" type="month" value="${esc(month)}" style="width:auto;border:1px solid var(--line);border-radius:var(--r-s);padding:7px 10px;background:var(--surface);color:var(--ink)"></label>${canAdd?`<button class="btn primary" type="button" data-act="addMember">${ic("plus")}${esc(t("addMember"))}</button>`:""}<button class="btn" type="button" data-act="teamRefresh">${esc(t("refresh"))}</button></div></div>`;
+  if(!Object.keys(st.team||{}).length&&!(st.all||[]).length)return h+`<div class="sec">${emptyBox("users",t("noTeamT"),t("noTeamS"),canAdd?`<button class="btn primary" type="button" data-act="addMember">${ic("plus")}${esc(t("addMember"))}</button>`:"")}</div>`;
+  if(!st.all)return h+`<div class="sec"><div class="empty"><span class="ic">${ic("chart")}</span><b>${esc(t("countingAll"))}</b></div></div>`;
+  const stats=teamStats(month);
+  if(v.person){const p=stats.find(x=>x.key===v.person);if(p)return h+personDetail(p,month)}
+  const tot=stats.reduce((a,p)=>({d:a.d+p.done,r:a.r+p.returned,h:a.h+p.hours}),{d:0,r:0,h:0});
+  h+=`<div class="sec stats"><div class="stat"><span class="n">${fmtNum(stats.filter(p=>p.items.length).length)}</span><span class="l">${esc(t("people"))}</span></div><div class="stat"><span class="n">${fmtNum(tot.d)}</span><span class="l">${esc(t("stagesDone"))}</span></div><div class="stat ${tot.r?"hot":""}"><span class="n">${fmtNum(tot.r)}</span><span class="l">${esc(t("sentBack"))}</span></div><div class="stat"><span class="n">${fmtNum(tot.h)}</span><span class="l">${esc(t("hoursM"))}</span></div></div>`;
+  h+=`<section class="sec"><div class="sec-h"><h2>${ic("users")}${esc(monthLabel(month))}</h2></div><div class="grid">${stats.map(p=>{const rate=(p.done+p.returned)?Math.round(100*p.returned/(p.done+p.returned)):0;
+    return `<button class="card" type="button" data-act="person" data-key="${esc(p.key)}"><div class="row">${av(p.name,"lg")}<div style="min-width:0"><div class="t">${esc(p.name)}</div>${p.listed?"":`<span class="pill warn">${esc(t("unlisted"))}</span>`}</div></div>
+    <div class="kv"><span>${esc(t("stagesDone"))} <b>${fmtNum(p.done)}</b></span><span>${esc(t("tasksWorked"))} <b>${fmtNum(p.tasks.size)}</b></span></div>
+    <div class="kv"><span ${p.returned?'style="color:var(--brand)"':""}>${esc(t("sentBackRate"))} <b ${p.returned?'style="color:var(--brand)"':""}>${fmtNum(p.returned)}${p.returned?` · ${fmtNum(rate)}%`:""}</b></span><span>${esc(t("hoursM"))} <b>${fmtNum(p.hours)}</b></span>${p.dn?`<span>${esc(t("avgDaysM"))} <b>${fmtNum((p.days/p.dn).toFixed(1))}</b></span>`:""}</div></button>`}).join("")}</div></section>`;
+  return h}
+function personDetail(p,month){const rate=(p.done+p.returned)?Math.round(100*p.returned/(p.done+p.returned)):0;
+  let h=`<div class="sec"><button class="btn small back" type="button" data-act="personBack">${ic("arrow")} ${esc(t("teamT"))}</button></div>`;
+  h+=`<div class="sec phead"><div class="row">${av(p.name,"lg")}<div><h1>${esc(p.name)}</h1><div class="sub">${esc(t("workIn"))} ${esc(monthLabel(month))}</div></div></div></div>`;
+  h+=`<div class="sec stats"><div class="stat"><span class="n">${fmtNum(p.done)}</span><span class="l">${esc(t("stagesDone"))}</span></div><div class="stat"><span class="n">${fmtNum(p.tasks.size)}</span><span class="l">${esc(t("tasksWorked"))}</span></div><div class="stat ${p.returned?"hot":""}"><span class="n">${fmtNum(p.returned)}</span><span class="l">${esc(t("sentBack"))}${p.returned?` · ${fmtNum(rate)}%`:""}</span></div><div class="stat"><span class="n">${fmtNum(p.hours)}</span><span class="l">${esc(t("hoursM"))}</span></div></div>`;
+  if(!p.items.length)return h+`<div class="sec panel sub">${esc(t("noWork"))}</div>`;
+  const items=p.items.slice().sort((a,b)=>String(b.s.end||b.s.start).localeCompare(a.s.end||a.s.start));
+  h+=`<div class="sec tbl"><table><thead><tr><th>${esc(t("date"))}</th><th>${esc(t("project"))}</th><th>${esc(t("task"))}</th><th>${esc(t("kind"))}</th><th>${esc(t("status"))}</th><th>${esc(t("hoursM"))}</th></tr></thead><tbody>${items.map(({r,s})=>`<tr class="click" tabindex="0" data-act="openTaskFrom" data-uid="${esc(r.uid)}" data-pid="${esc(r.pid)}" data-tid="${esc(r.tid)}"><td class="num">${esc(fmtDate(s.end||s.start))}</td><td>${esc(r.pname||"")}</td><td><b>${esc(r.task.title)}</b></td><td>${esc(stageKind(s))}${s.report?`<div class="sub" style="max-width:40ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(s.report)}</div>`:""}</td><td>${pill(SST[s.status||"waiting"],t("sst."+(s.status||"waiting")))}${s.status==="returned"&&s.returnReason&&s.returnReason!=="quality"?`<div class="sub">${esc(t("rr."+s.returnReason).replace(/\s*\(.*\)/,""))}</div>`:""}</td><td class="num">${fmtNum(Number(s.hours)||0)}</td></tr>`).join("")}</tbody></table></div>`;
+  return h}
+function memberForm(){openModal(t("addMember"),fld("f_mname",t("memberName"),inp("f_mname","","text","required"),t("memberHint"),true),async fd=>{const name=String(fd.get("f_mname")||"").trim().replace(/\s+/g," ");if(!name)return;
+  if(Object.values(st.team||{}).some(m=>normName(m.name)===normName(name))){closeModal();toast(t("saved"));return}
+  const ref=st.db.collection("team").doc();await write(ref.path,()=>ref.set({name,createdAt:new Date().toISOString(),by:st.me.id}));closeModal();toast(t("saved"))})}
+
 /* ---------- sign in + users ---------- */
 function signInPage(){const up=st.authMode==="up";
   return `<section class="hero"><h1>${esc(t("heroT"))}</h1><p>${esc(t("heroS"))}</p><div class="row"><button class="btn outline-w" type="button" data-act="demo">${ic("eye")}${esc(t("seeDemo"))}</button></div></section>
@@ -628,6 +683,7 @@ document.addEventListener("submit",async e=>{if(e.target.id!=="authForm")return;
 function usersPage(){const list=Object.entries(st.users).sort((a,b)=>String(a[1].role).localeCompare(b[1].role));
   return crumbs([{act:"home",label:t("home")},{label:t("users")}])+`<div class="greet"><div><h1>${esc(t("users"))}</h1><div class="sub">${esc(t("usersS"))}</div></div></div>
   <div class="sec tbl"><table><thead><tr><th>${esc(t("person"))}</th><th>${esc(t("email"))}</th><th>${esc(t("role"))}</th></tr></thead><tbody>${list.map(([id,u])=>`<tr><td><span class="row" style="gap:8px">${av(u.name||u.email)}<b>${esc(u.name||"–")}</b></span></td><td dir="ltr" style="text-align:start">${esc(u.email||"")}</td><td>${id===st.me.id?pill("acc",t("roles."+u.role)):`<select data-role="${esc(id)}" aria-label="${esc(t("role"))}">${["pending","pm","supervisor","admin","disabled"].map(r=>`<option value="${r}" ${r===u.role?"selected":""}>${esc(t("roles."+r))}</option>`).join("")}</select>`}</td></tr>`).join("")}</tbody></table></div>`}
+document.addEventListener("change",e=>{if(e.target.id==="teamMonth"&&e.target.value){st.view=Object.assign({},st.view,{month:e.target.value});render()}});
 document.addEventListener("change",async e=>{const el=e.target.closest("select[data-role]");if(!el)return;const id=el.dataset.role;
   try{await write("users/"+id,()=>st.db.collection("users").doc(id).update({role:el.value}));toast(t("saved"))}catch(err){onErr(err)}});
 
@@ -683,13 +739,17 @@ function taskForm(uid,pid,tid){const x=tid?st.tasks[tid]:{status:"todo",priority
 function stageForm(uid,pid,tid,sid,handoff){const x=st.tasks[tid];const sg=(x.stages||[]).slice();const team=((st.projects[uid]||{})[pid]||{}).team||[];
   let s=sid?sg.find(z=>z.id===sid):{status:"in_progress",start:today()};
   if(handoff){const last=sg[sg.length-1]||{};s={status:"in_progress",start:today(),from:last.who||"",who:last.to||""}}
+  const roster=Object.entries(st.team||{}).map(([id,m])=>({id,name:m.name})).sort((a,b)=>a.name.localeCompare(b.name));
   const ppl=[...new Set(team.concat(Object.values(st.tasks).flatMap(z=>(z.stages||[]).flatMap(g=>[g.who,g.from,g.to]))).filter(Boolean))];
+  const pSel=(id,val,req)=>{const has=roster.some(r=>r.name===val);return `<select id="${id}" name="${id}" ${req?"required":""}><option value="">${esc(t("pick"))}</option>${roster.map(r=>`<option value="${esc(r.name)}" ${r.name===val?"selected":""}>${esc(r.name)}</option>`).join("")}${val&&!has?`<option value="${esc(val)}" selected>${esc(val)} · ${esc(t("unlisted"))}</option>`:""}</select>`};
+  const useSel=roster.length>0;
   const used=[...new Set(Object.values(st.tasks).flatMap(z=>(z.stages||[]).map(stageKind)).filter(k=>k&&k!=="–"))];
   const dl=`<datalist id="teamlist">${ppl.map(n=>`<option value="${esc(n)}"></option>`).join("")}</datalist><datalist id="kindlist">${used.map(n=>`<option value="${esc(n)}"></option>`).join("")}</datalist>`;
   const moreOpen=!!(sid&&(s.subitems||s.links||(s.files||[]).length||s.hours));
   openModal(sid?t("edit"):(handoff?t("handOff"):t("addStage")),dl+
-   `<div class="fgrid">${fld("f_who",t("who"),inp("f_who",s.who,"text",'list="teamlist" required autocomplete="off"'),"",true)}${fld("f_kind",t("kind"),inp("f_kind",stageKind(s)==="–"?"":stageKind(s),"text",`list="kindlist" required autocomplete="off" placeholder="${esc(t("kindPh"))}"`),t("kindHint"),true)}</div>`+
-   `<div class="fgrid">${fld("f_from",t("from"),inp("f_from",s.from,"text",'list="teamlist" autocomplete="off"'))}${fld("f_to",t("to"),inp("f_to",s.to,"text",'list="teamlist" autocomplete="off"'))}${fld("f_sstatus",t("status"),sel("f_sstatus",s.status||"in_progress",enumOpts("sst")))}</div>`+
+   `<div class="fgrid">${fld("f_who",t("who"),useSel?pSel("f_who",s.who,true):inp("f_who",s.who,"text",'list="teamlist" required autocomplete="off"'),useSel?"":t("notInList"),true)}${fld("f_kind",t("kind"),inp("f_kind",stageKind(s)==="–"?"":stageKind(s),"text",`list="kindlist" required autocomplete="off" placeholder="${esc(t("kindPh"))}"`),t("kindHint"),true)}</div>`+
+   `<div class="fgrid">${fld("f_from",t("from"),useSel?pSel("f_from",s.from):inp("f_from",s.from,"text",'list="teamlist" autocomplete="off"'))}${fld("f_to",t("to"),useSel?pSel("f_to",s.to):inp("f_to",s.to,"text",'list="teamlist" autocomplete="off"'))}${fld("f_sstatus",t("status"),sel("f_sstatus",s.status||"in_progress",enumOpts("sst")))}</div>`+
+   `<div class="fgrid">${fld("f_reason",t("reason"),sel("f_reason",s.returnReason||"quality",Object.keys(S.en.rr).map(k=>[k,t("rr."+k)])))}</div>`+
    `<div class="fgrid">${fld("f_sstart",t("started"),inp("f_sstart",s.start,"date"))}${fld("f_send",t("finished"),inp("f_send",s.end,"date"))}</div>`+
    fld("f_report",t("stageReport"),area("f_report",s.report,'style="min-height:140px"'),t("stageReportHint"))+
    `<details class="more" ${moreOpen?"open":""}><summary>${esc(t("more"))}</summary><div class="stack">`+
@@ -702,7 +762,7 @@ function stageForm(uid,pid,tid,sid,handoff){const x=st.tasks[tid];const sg=(x.st
   async (fd,f)=>{const who=String(fd.get("f_who")||"").trim();const kindTxt=String(fd.get("f_kind")||"").trim();if(!who||!kindTxt){(f.querySelector(!who?"#f_who":"#f_kind")).focus();return}
     let files=(s.files||[]).slice();const fi=f.querySelector("#f_files");
     if(fi&&fi.files&&fi.files.length&&st.assets){for(const file of fi.files){try{const r=await st.assets.upload(file);files.push({id:r.id,name:file.name})}catch(e){toast(t("saveErr"))}}}
-    const data={id:sid||("s"+uid4()),who,from:String(fd.get("f_from")||"").trim(),to:String(fd.get("f_to")||"").trim(),kind:"",kindCustom:kindTxt,status:fd.get("f_sstatus"),start:fd.get("f_sstart")||"",end:fd.get("f_send")||"",hours:Number(fd.get("f_hours"))||0,report:String(fd.get("f_report")||""),subitems:String(fd.get("f_subs")||""),links:String(fd.get("f_links")||""),files};
+    const data={id:sid||("s"+uid4()),who,from:String(fd.get("f_from")||"").trim(),to:String(fd.get("f_to")||"").trim(),kind:"",kindCustom:kindTxt,status:fd.get("f_sstatus"),returnReason:fd.get("f_sstatus")==="returned"?(fd.get("f_reason")||"quality"):"",whoId:(Object.entries(st.team||{}).find(([i,m])=>m.name===who)||[""])[0],start:fd.get("f_sstart")||"",end:fd.get("f_send")||"",hours:Number(fd.get("f_hours"))||0,report:String(fd.get("f_report")||""),subitems:String(fd.get("f_subs")||""),links:String(fd.get("f_links")||""),files};
     let next=(st.tasks[tid].stages||[]).slice();
     if(sid)next=next.map(z=>z.id===sid?data:z);
     else{if(handoff&&next.length){const li=next.length-1;const last=Object.assign({},next[li]);if(!last.to)last.to=who;if(last.status!=="done"&&last.status!=="returned"){last.status="done";if(!last.end)last.end=data.start||today()}next[li]=last}next.push(data)}
@@ -735,6 +795,7 @@ document.addEventListener("click",async e=>{const el=e.target.closest("[data-act
   case"openPm":go({name:"pm",uid:el.dataset.uid});break;
   case"openProject":go({name:"project",uid:el.dataset.uid,pid:el.dataset.pid,tab:"tasks"});break;
   case"openTask":go({name:"task",uid:v.uid,pid:v.pid,tid:el.dataset.tid});break;
+  case"openTaskFrom":go({name:"task",uid:el.dataset.uid,pid:el.dataset.pid,tid:el.dataset.tid});break;
   case"tab":st.view=Object.assign({},v,{tab:el.dataset.tab});st.confirm=null;render();break;
   case"startPm":startPmForm();break;
   case"newProject":projectForm(el.dataset.uid);break;
@@ -762,6 +823,11 @@ document.addEventListener("click",async e=>{const el=e.target.closest("[data-act
   case"exportCsv":{const p=(st.projects[v.uid]||{})[v.pid]||{};const name=((p.code||"project")+"-"+(p.name||"").replace(/[^\w\- ]+/g,"").trim().replace(/\s+/g,"-")).slice(0,60)+".csv";
     const url=URL.createObjectURL(new Blob([csv()],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);break}
   case"users":go({name:"users"});break;
+  case"team":st.all=null;go({name:"team",month:today().slice(0,7)});loadAll();break;
+  case"teamRefresh":st.all=null;render();loadAll();break;
+  case"addMember":memberForm();break;
+  case"person":st.view=Object.assign({},v,{person:el.dataset.key});render();window.scrollTo(0,0);break;
+  case"personBack":st.view=Object.assign({},v,{person:null});render();break;
   case"signOut":fbAuth&&fbAuth.signOut();break;
   case"google":{try{await fbAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())}catch(err){if(err&&err.code!=="auth/popup-closed-by-user")toast(t("authErr"))}break}
   case"authMode":st.authMode=st.authMode==="in"?"up":"in";render();break;
